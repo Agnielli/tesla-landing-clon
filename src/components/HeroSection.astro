@@ -19,10 +19,25 @@ import Section from "./Section.astro"
 
   <video
     slot="background"
+    id="video-background-hero"
     class="object-center object-cover h-full w-full"
     autoplay
     muted
     loop
-    src="/video.webm">
+   >
 	</video>
 </Section>
+
+<script>
+  const videoElement = document.querySelector('#video-background-hero');
+
+  const updateVideoSrc = () => {
+    const isMobile = window.innerWidth < 640;
+    const videoSrc = isMobile ? '/heroMobile.webm' : '/hero.webm';
+    videoElement.setAttribute('src', videoSrc);
+  };
+
+window.addEventListener('resize', updateVideoSrc);
+
+updateVideoSrc();
+</script>

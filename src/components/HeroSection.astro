@@ -24,8 +24,10 @@ import Section from "./Section.astro"
     autoplay
     muted
     loop
-   >
-	</video>
+>
+    <source src="/hero.webm" type="video/webm">
+    <source src="/heroMobile.webm" type="video/webm">
+</video>
 </Section>
 
 <script>
@@ -33,7 +35,7 @@ import Section from "./Section.astro"
 
   const updateVideoSrc = () => {
     const isMobile = window.innerWidth < 640;
-    const videoSrc = isMobile ? '/model-3-movil.avif' : '/hero.webm';
+    const videoSrc = isMobile ? '/heroMobile.webm' : '/hero.webm';
     videoElement.setAttribute('src', videoSrc);
   };
 
